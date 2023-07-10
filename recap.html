@@ -26,11 +26,12 @@
     <script>
       $(function() {
         let keys = Object.keys(sessionStorage);
+        console.log(keys);
         let total = 0;
         for (key in keys){
           console.log(key);
         }
-        $("#score").innerText = total;
+        $("#score").text(total);
       });
       $("#restart").on("click", function(){
         sessionStorage.clear();
