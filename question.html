@@ -47,7 +47,7 @@
         let key = splitted[0];
         let value = parseInt(splitted[1], 10);
         sessionStorage.setItem(key, value);
-        $("#next").classList.remove("mystyle");
+        $("#next").classList.remove("disabled");
         console.log(key);
         console.log(sessionStorage.getItem(key));
       });
