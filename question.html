@@ -43,7 +43,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>  
       $(".btn-outline-dark").on("click", function(){
-        let intValue = parseInt($(this).attr('id').substring(1, 2), 10);
+        let key = $(this).parentElement.attr('id');
+        let value = parseInt($(this).attr('id').substring(1, 2), 10);
         sessionStorage.setItem(key, value);
         document.getElementById("next").disabled = false;
         console.log(sessionStorage.getItem(key));
