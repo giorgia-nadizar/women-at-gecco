@@ -27,7 +27,7 @@
       $(function() {
         let keys = Object.keys(sessionStorage);
         let total = 0;
-        $.each(localStorage, function(key, value){
+        $.each(sessionStorage, function(key, value){
           console.log(key);
           console.log(value);
           total = total + value;
