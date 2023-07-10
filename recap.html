@@ -12,8 +12,7 @@
   </head>
   <body>
     <div class="p-3">
-      <h1>Your privilege score</h1>
-      <p id="score"></p>
+      <h1 id="score"></h1>
       
       <a href="index.html" role="button" aria-pressed="true" class="btn btn-outline-warning btn-lg btn-block mt-5" id="restart">Restart the questionnaire</a>
     </div>
@@ -32,7 +31,7 @@
             total = total + parseInt(value);
           }
         });
-        $("#score").text(total);
+        $("#score").text("Your privilege score is " + total);
       });
       $("#restart").on("click", function(){
         sessionStorage.clear();
