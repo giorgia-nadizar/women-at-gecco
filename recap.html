@@ -32,7 +32,7 @@
           console.log(value);
           if (/^q\d+$/.test(key)){
             console.log("ok");
-            total = total + value;
+            total = total + parseInt(value);
           }
         });
         $("#score").text(total);
