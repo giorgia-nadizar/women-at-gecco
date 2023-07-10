@@ -17,10 +17,10 @@
       <div>
         <h2>What’s your skin colour?</h2>
         <p>African Americans and Latinos make up 30% of the U.S. population but account for less than 10% of participants in genetic studies.</p>
-        <div id="q1">
-          <button type="button" class="btn btn-outline-dark btn-lg btn-block" id="r1">Black</button>
-          <button type="button" class="btn btn-outline-dark btn-lg btn-block" id="r2">Various shades</button>
-          <button type="button" class="btn btn-outline-dark btn-lg btn-block" id="r3">White</button>
+        <div>
+          <button type="button" class="btn btn-outline-dark btn-lg btn-block" id="q1-1">Black</button>
+          <button type="button" class="btn btn-outline-dark btn-lg btn-block" id="q1-2">Various shades</button>
+          <button type="button" class="btn btn-outline-dark btn-lg btn-block" id="q1-3">White</button>
         </div>
       </div>
 
@@ -43,8 +43,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>  
       $(".btn-outline-dark").on("click", function(){
-        let key = $(this).parentElement.attr('id');
-        let value = parseInt($(this).attr('id').substring(1, 2), 10);
+        let splitted = $(this).attr('id').split("-");
+        let key = splitted[0];
+        let value = parseInt(splitted[1], 10);
         sessionStorage.setItem(key, value);
         document.getElementById("next").disabled = false;
         console.log(sessionStorage.getItem(key));
