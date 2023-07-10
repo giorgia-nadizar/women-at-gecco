@@ -28,10 +28,7 @@
         let keys = Object.keys(sessionStorage);
         let total = 0;
         $.each(sessionStorage, function(key, value){
-          console.log(key);
-          console.log(value);
           if (/^q\d+$/.test(key)){
-            console.log("ok");
             total = total + parseInt(value);
           }
         });
