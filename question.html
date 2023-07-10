@@ -9,6 +9,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     <title>Women+@Gecco 2023</title>
+
+    <script>
+      function reply(key, value) {
+        let intValue = parseInt(value.substring(1, 2), 10);
+        sessionStorage.setItem(key, value);
+        document.getElementById("next").disabled = false;
+        console.log(sessionStorage.getItem(key));
+      }
+  
+      $(".btn-outline-dark").on("click", reply("prova", $(this).attr('id')));
+    </script>
   </head>
   <body>
     <div class="p-3">
@@ -16,17 +27,17 @@
       <div>
         <h2>What’s your skin colour?</h2>
         <p>African Americans and Latinos make up 30% of the U.S. population but account for less than 10% of participants in genetic studies.</p>
-        <div>
-          <button type="button" class="btn btn-outline-dark btn-lg btn-block">Black</button>
-          <button type="button" class="btn btn-outline-dark btn-lg btn-block">Various shades</button>
-          <button type="button" class="btn btn-outline-dark btn-lg btn-block">White</button>
+        <div id="q1">
+          <button type="button" class="btn btn-outline-dark btn-lg btn-block" id="r1">Black</button>
+          <button type="button" class="btn btn-outline-dark btn-lg btn-block" id="r2">Various shades</button>
+          <button type="button" class="btn btn-outline-dark btn-lg btn-block" id="r3">White</button>
         </div>
       </div>
 
       <div class="text-center pt-5 pb-2">
         <div class="btn-group d-flex" role="group" aria-label="Arrows">
           <button type="button" class="btn btn-outline-danger">Previous question</button>
-          <button type="button" class="btn btn-outline-success">Next question</button>
+          <button type="button" class="btn btn-outline-success disabled" id="next">Next question</button>
         </div>
       </div>
 
