@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="p-3">
-      <h1>Question 1</h1>
+      <h1 id="title">Question 1</h1>
       <div>
         <h2 id="question_text">What’s your skin colour?</h2>
         <p id="question_info">African Americans and Latinos make up 30% of the U.S. population but account for less than 10% of participants in genetic studies.</p>
@@ -26,8 +26,8 @@
 
       <div class="text-center pt-5 pb-2">
         <div class="btn-group d-flex" role="group" aria-label="Arrows">
-          <a href="index.html" role="button" id="previous" aria-pressed="true" class="btn btn-outline-danger">Previous question</button>
-          <a href="recap.html" role="button" id="next" aria-pressed="true" aria-disabled="true" class="btn btn-outline-success disabled">Next question</a>
+          <button type="button" class="btn btn-outline-danger" id="previous">Previous question</button>
+          <button type="button" class="btn btn-outline-success" id="next">Next question</button>
         </div>
       </div>
 
@@ -44,52 +44,348 @@
     <script>
       const questions = [
           {
-              "q_id": "q1",
-              "text": "What's up?",
+              "text": "What’s your skin colour?",
               "answers": [
                   {
                       "value": 1,
-                      "text": "Hello1"
+                      "text": "Black"
                   },
                   {
                       "value": 2,
-                      "text": "Hello2"
+                      "text": "Various shades"
                   },
                   {
                       "value": 3,
-                      "text": "Hello3"
+                      "text": "White"
                   }
               ]
           },
+
           {
-              "q_id": "q2",
-              "text": "What's up 2?",
+              "text": "What’s your gender?",
               "answers": [
                   {
                       "value": 1,
-                      "text": "Ho1"
+                      "text": "Trans, intersex, non-binary"
                   },
                   {
                       "value": 2,
-                      "text": "Hu2"
+                      "text": "Cis-woman"
                   },
                   {
                       "value": 3,
-                      "text": "Hello3"
+                      "text": "Cis-man"
                   }
               ]
-          }
+          },
+
+          {
+              "text": "What’s your sexual orientation?",
+              "answers": [
+                  {
+                      "value": 1,
+                      "text": "Lesbian, bi, pan, asexual"
+                  },
+                  {
+                      "value": 2,
+                      "text": "Gay man"
+                  },
+                  {
+                      "value": 3,
+                      "text": "Hetero sexual"
+                  }
+              ]
+          },
+
+          {
+              "text": "What’s the higher educational level achieved by your care-givers?",
+              "answers": [
+                  {
+                      "value": 1,
+                      "text": "Primary or below"
+                  },
+                  {
+                      "value": 2,
+                      "text": "Secondary"
+                  },
+                  {
+                      "value": 3,
+                      "text": "University"
+                  },{
+                      "value": 4,
+                      "text": "PhD"
+                  }
+              ]
+          },
+
+          {
+              "text": "What level of wealth did you experience in your household during your upbringing?",
+              "answers": [
+                  {
+                      "value": 1,
+                      "text": "Poor"
+                  },
+                  {
+                      "value": 2,
+                      "text": "Middle class"
+                  },
+                  {
+                      "value": 3,
+                      "text": "Rich"
+                  }
+              ]
+          },
+
+          {
+              "text": "What’s the usual attitude towards your religion and/or culture?",
+              "answers": [
+                  {
+                      "value": 1,
+                      "text": "Not widely accepted"
+                  },
+                  {
+                      "value": 2,
+                      "text": "Usually accepted"
+                  },
+                  {
+                      "value": 3,
+                      "text": "Widely accepted"
+                  }
+              ]
+          },
+
+          {
+              "text": "How hard is it for you to travel to other countries because of your country of origin?",
+              "answers": [
+                  {
+                      "value": 1,
+                      "text": "Easy"
+                  },
+                  {
+                      "value": 2,
+                      "text": "Hard but usually possible"
+                  },
+                  {
+                      "value": 3,
+                      "text": "Sometimes impossible"
+                  }
+              ]
+          },
+
+          {
+              "text": "How comfortable do you feel with English?",
+              "answers": [
+                  {
+                      "value": 1,
+                      "text": "Requires intense mental effort to speak, sometimes cannot express myself as in my native language"
+                  },
+                  {
+                      "value": 2,
+                      "text": "Not my first language but totally fine"
+                  },
+                  {
+                      "value": 3,
+                      "text": "Mother tongue"
+                  }
+              ]
+          },
+
+          {
+              "text": "Do you have kids to take care of?",
+              "answers": [
+                  {
+                      "value": 1,
+                      "text": "Single parent/mostly responsible for the child"
+                  },
+                  {
+                      "value": 2,
+                      "text": "Shared care"
+                  },
+                  {
+                      "value": 3,
+                      "text": "No kids/total availability of someone who can take care of them when needed"
+                  }
+              ]
+          },
+
+          {
+              "text": "How do you deal with duties in your household?",
+              "answers": [
+                  {
+                      "value": 1,
+                      "text": "Only responsible person for them"
+                  },
+                  {
+                      "value": 2,
+                      "text": "Shared"
+                  },
+                  {
+                      "value": 3,
+                      "text": "Not responsible for them/cleaning person available"
+                  }
+              ]
+          },
+
+          {
+              "text": "How would you describe your current position?",
+              "answers": [
+                  {
+                      "value": 1,
+                      "text": "Focused on something different from research"
+                  },
+                  {
+                      "value": 2,
+                      "text": "Half research"
+                  },
+                  {
+                      "value": 3,
+                      "text": "Research intensive"
+                  }
+              ]
+          },
+
+          {
+              "text": "Do you have funding available to go to conferences?",
+              "answers": [
+                  {
+                      "value": 1,
+                      "text": "Limited funding, sometimes need to pay out of pocket"
+                  },
+                  {
+                      "value": 2,
+                      "text": "Funding available but only reimbursement after paying"
+                  },
+                  {
+                      "value": 3,
+                      "text": "Funding available, no need to advance money"
+                  }
+              ]
+          },
+
+          {
+              "text": "How would you describe your salary?",
+              "answers": [
+                  {
+                      "value": 1,
+                      "text": "Not enough to live upon, need a side job"
+                  },
+                  {
+                      "value": 2,
+                      "text": "Just enough to live, not much left for extras/saving"
+                  },
+                  {
+                      "value": 3,
+                      "text": "Enough to live and save/enjoy some extras"
+                  }
+              ]
+          },
+
+          {
+              "text": "Have you ever been bullied/experienced (sexual) abuse in your studies/career?",
+              "answers": [
+                  {
+                      "value": 1,
+                      "text": "Verbally and physically"
+                  },
+                  {
+                      "value": 2,
+                      "text": "Only verbally"
+                  },
+                  {
+                      "value": 3,
+                      "text": "Never"
+                  }
+              ]
+          },
+
+          {
+              "text": "Have you ever had access to mentors or role models who shared your gender, race, ethnicity, or other protected characteristics?",
+              "answers": [
+                  {
+                      "value": 1,
+                      "text": "Never"
+                  },
+                  {
+                      "value": 2,
+                      "text": "In limited amount"
+                  },
+                  {
+                      "value": 3,
+                      "text": "A lot"
+                  }
+              ]
+          },
+
+          {
+              "text": "Have you ever had to justify or prove your abilities or qualifications more than others due to your gender, race, or other factors?",
+              "answers": [
+                  {
+                      "value": 1,
+                      "text": "Often, still happens quite regularly"
+                  },
+                  {
+                      "value": 2,
+                      "text": "Only in rare occasions"
+                  },
+                  {
+                      "value": 3,
+                      "text": "Never"
+                  }
+              ]
+          },
+
+          {
+              "text": "Have you ever been discouraged or dissuaded from pursuing a particular academic or research field due to societal or cultural expectations?",
+              "answers": [
+                  {
+                      "value": 1,
+                      "text": "Frequently"
+                  },
+                  {
+                      "value": 2,
+                      "text": "Occasionally/rarely"
+                  },
+                  {
+                      "value": 3,
+                      "text": "Never"
+                  }
+              ]
+          },
+
+          {
+              "text": "Have you ever had access to networking opportunities that facilitated your professional growth and advancement?",
+              "answers": [
+                  {
+                      "value": 1,
+                      "text": "Never"
+                  },
+                  {
+                      "value": 2,
+                      "text": "Not until today"
+                  },
+                  {
+                      "value": 3,
+                      "text": "Many times before"
+                  }
+              ]
+          },
       ];
       
       function updatePage(){
         let current_q_id = sessionStorage.getItem("current_q_id");
-        let current_question = questions[parseInt(current_q_id.replace("q","")) - 1];
-        let current_text = current_question.text;
-        $("#question_text").text(current_text);
+        if (current_q_id == null){
+          sessionStorage.setItem("current_q_id", 1);
+          current_q_id = "q1";
+        };
+        let current_number = parseInt(current_q_id.replace("q",""));
+        let current_question = questions[current_number - 1];
+        $("#title").text("Question " + current_number);
+        $("#question_text").text(current_question.text);
         // clear responses
         $("#questions").empty();
         let current_answers = current_question.answers;
-        for (answer in current_answers){
+        for (answer_id in current_answers){
+          answer = current_answers[answer_id];
           // create button
           let curr_btn = document.createElement("button");
           curr_btn.innerHTML = answer.text
@@ -98,15 +394,41 @@
           // append it
           $("#questions").append(curr_btn);
         }
+        $("#next").prop('disabled', true);
       };
-      
 
-      $(".btn-outline-dark").on("click", function(){
+      $(function() {
+        updatePage();
+      });      
+
+      $(document).on("click", ".btn-outline-dark", function(){
         let splitted = $(this).attr('id').split("-");
         let key = splitted[0];
         let value = parseInt(splitted[1], 10);
         sessionStorage.setItem(key, value);
-        $("#next").removeClass("disabled");
+        console.log(key);
+        console.log(value);
+        $("#next").prop('disabled', false);
+      });
+
+      $("#previous").on("click", function(){
+        let current_q_id = sessionStorage.getItem("current_q_id");
+        let current_q_number = parseInt(current_q_id.replace("q",""));
+        if (current_q_number <= 1){
+          location.replace("index.html");
+        } 
+        sessionStorage.setItem("current_q_id", "q" + (current_q_number-1));
+        updatePage();
+      });
+
+      $("#next").on("click", function(){
+        let current_q_id = sessionStorage.getItem("current_q_id");
+        let current_q_number = parseInt(current_q_id.replace("q",""));
+        if (current_q_number >= questions.length){
+          location.replace("recap.html");
+        } 
+        sessionStorage.setItem("current_q_id", "q" + (current_q_number+1));
+        updatePage();
       });
     </script>
   </body>
