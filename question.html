@@ -384,6 +384,11 @@
         let current_question = questions[current_number - 1];
         $("#title").text("Question " + current_number);
         $("#question_text").text(current_question.text);
+        curr_info = current_question.info
+        if (curr_info == null){
+            curr_info = "";
+        }
+        $("#question_info").text(curr_info);
         // clear responses
         $("#questions").empty();
         let current_answers = current_question.answers;
