@@ -32,7 +32,7 @@
       </div>
 
       <div class="progress">
-        <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+        <div class="progress-bar" id="progr" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
       </div>
     </div>
 
@@ -378,6 +378,9 @@
           current_q_id = "q1";
         };
         let current_number = parseInt(current_q_id.replace("q",""));
+        let progress = Math.round((100 * current_number) / questions.length);
+        $("#progr").css("width", progress + "%");
+
         let current_question = questions[current_number - 1];
         $("#title").text("Question " + current_number);
         $("#question_text").text(current_question.text);
